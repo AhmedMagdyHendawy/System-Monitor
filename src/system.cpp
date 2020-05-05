@@ -24,8 +24,6 @@ vector<Process>& System::Processes() {
     for(int pid : pids){
         processes_.push_back(Process(pid));
     }
-//   	for(auto& process: processes_)
-//       process.CpuUtilization();
     sort(processes_.begin(),processes_.end(),[](Process& p1, Process& p2){return p1<p2;});
     return processes_;
  }

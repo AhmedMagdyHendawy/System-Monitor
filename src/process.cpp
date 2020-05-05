@@ -17,8 +17,8 @@ int Process::Pid() { return pid_; }
 float Process::CpuUtilization() { 
     long total_time=LinuxParser::ActiveJiffies(Process::Pid());
     float seconds=LinuxParser::UpTime(Pid());
-    cpu_utils=(total_time/sysconf(_SC_CLK_TCK))/seconds;
-    return cpu_utils;
+    Process::cpu_utils=(total_time/sysconf(_SC_CLK_TCK))/seconds;
+  return Process::cpu_utils;
 }
 // DONE: Return the command that generated this process
 string Process::Command() { return LinuxParser::Command(Process::Pid()); }
